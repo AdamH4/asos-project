@@ -1,0 +1,27 @@
+
+version: "3.8"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+  solr:
+    image: solr
+    ports:
+      - "8983:8983"
+
+  elasticsearch:
+    image: elasticsearch:8.4.3
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  lucene:
+    image: ryanmeredith/lucene
+    ports:
+      - "5985:5985"
+
+
+volumes:
+  asos: 
