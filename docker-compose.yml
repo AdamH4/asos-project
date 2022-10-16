@@ -2,20 +2,26 @@
 version: "3.8"
 
 services:
+
   frontend:
     build: ./frontend
     ports:
       - "3000:3000"
   solr:
-    image: solr
+    image: solr:latest
     ports:
       - "8983:8983"
 
   elasticsearch:
     image: elasticsearch:8.4.3
+    environment:
+      - discovery.type=single-node
+      - cluster.name=elastic-cluster
+      - xpack.security.enabled=false
     ports:
       - "9200:9200"
-      - "9300:9300"
+    volumes:
+      - asos-elastic:/usr/share/elasticsearch/data
 
   lucene:
     image: ryanmeredith/lucene
@@ -24,4 +30,5 @@ services:
 
 
 volumes:
-  asos: 
+  asos-elastic:
+    driver: local
