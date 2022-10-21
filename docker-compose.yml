@@ -45,6 +45,15 @@ services:
             retries: 3
             timeout: 5s
 
+    meilisearch:
+        image: getmeili/meilisearch:v0.29
+        ports:
+            - "7700:7700"
+        environment:
+            - MEILI_MASTER_KEY=admin
+        volumes:
+            - asos-meili:/meili_data
+
     elasticsearch:
         image: elasticsearch:8.4.3
         environment:
@@ -62,4 +71,6 @@ volumes:
     sail-mysql:
         driver: local
     asos-elastic:
+        driver: local
+    asos-meili:
         driver: local
