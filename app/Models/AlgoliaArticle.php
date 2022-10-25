@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Laravel\Scout\EngineManager;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
@@ -10,6 +11,7 @@ class AlgoliaArticle extends Model
 {
     use Searchable;
     use HasFactory;
+    protected $table = 'articles';
 
     protected $casts = [
         'tags' => 'json',
@@ -37,5 +39,15 @@ class AlgoliaArticle extends Model
         return [
             'title' => $this->title,
         ];
+    }
+
+    /**
+     * Get the engine used to index the model.
+     *
+     * @return \Laravel\Scout\Engines\Engine
+     */
+    public function searchableUsing()
+    {
+        return app(EngineManager::class)->engine('algolia');
     }
 }
