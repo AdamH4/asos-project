@@ -3,7 +3,15 @@
 Ako prvy krok je potrebne prekopirovat ENV do spravneho suboru
 
 ```bash
-cp .env.example .env
+$ cp .env.example .env
+```
+
+```bash
+$ php artisan seed:db
+```
+
+```bash
+$ php artisan scout:import
 ```
 
 Idealne si naistalovat [tento](https://github.com/casey/just) command line runner nech je vsetko jednoduchsie.
