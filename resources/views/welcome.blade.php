@@ -24,7 +24,7 @@
                     <form method="get" action="{{ route('search') }} ">
                         <div class="inner-form">
                             <div class="input-field second-wrap">
-                                <input id="search" name="search" type="text" placeholder="Enter search term" />
+                                <input id="search" name="search" type="text" placeholder="Enter search term" value="{{ request('search') }}" />
                             </div>
                             <div class="input-field third-wrap">
                                 <button class="btn-search" type="submit">
@@ -42,18 +42,75 @@
                 </div>
             </div>
             <div class="row mt-5">
-                @if (isset($articles))
-                    @foreach ($articles as $article)
-                        <div class="col-4 mt-3">
+                <div class="col-4">
+                    @if (isset($elasticArticles))
+                        <div class="card my-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Elasticsearch</h5>
+                                <dl class="row">
+                                    <dt class="col-sm-3">Number of results</dt>
+                                    <dd class="col-sm-9">{{ $elasticArticles->count() }}</dd>
+                                    <dt class="col-sm-3">Lookup time:</dt>
+                                    <dd class="col-sm-9">{{ "${performances['elastic']} ms" }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        @foreach ($elasticArticles as $article)
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $article->title }}</h5>
                                     <p class="card-text">{{ $article->body }}</p>
                                 </div>
                             </div>
+                        @endforeach
+                    @endif
+                </div>
+                <div class="col-4">
+                    @if (isset($meilisearchArticles))
+                        <div class="card my-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Meilisearch</h5>
+                                <dl class="row">
+                                    <dt class="col-sm-3">Number of results</dt>
+                                    <dd class="col-sm-9">{{ $meilisearchArticles->count() }}</dd>
+                                    <dt class="col-sm-3">Lookup time:</dt>
+                                    <dd class="col-sm-9">{{ "${performances['meili']} ms" }}</dd>
+                                </dl>
+                            </div>
                         </div>
-                    @endforeach
-                @endif
+                        @foreach ($meilisearchArticles as $article)
+                            <div class="card my-2">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $article->title }}</h5>
+                                    <p class="card-text">{{ $article->body }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+                <div class="col-4">
+                    @if (isset($algoliaArticles))
+                        <div class="card my-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Algolia</h5>
+                                <dl class="row">
+                                    <dt class="col-sm-3">Number of results</dt>
+                                    <dd class="col-sm-9">{{ $algoliaArticles->count() }}</dd>
+                                    <dt class="col-sm-3">Lookup time:</dt>
+                                    <dd class="col-sm-9">{{ "${performances['algolia']} ms" }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        @foreach ($algoliaArticles as $article)
+                            <div class="card my-2">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $article->title }}</h5>
+                                    <p class="card-text">{{ $article->body }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
             </div>
         </div>
     </div>
