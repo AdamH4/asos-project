@@ -12,18 +12,20 @@ class ArticleController extends Controller
     {
 
         // Elasticsearch
-        $articles = Article::search("$request->search", function ($client, $body) {
+        $elasticArticles = Article::search("$request->search", function ($client, $body) {
             return $client->search(['index' => 'articles', 'body' => $body->toArray()]);
         })->get();
 
-        $articles = Article::search("$request->search", function ($client, $body) {
+        $meiliSearchArticles = Article::search("$request->search", function ($client, $body) {
             return $client->search(['index' => 'articles', 'body' => $body->toArray()]);
         })->get();
 
-        $articles = AlgoliaArticle::search("$request->search")->get();
+        $algoliaArticles = AlgoliaArticle::search("$request->search")->get();
 
         return view('welcome', [
-            'articles' => $articles,
+            'elasticArticles' => $elasticArticles,
+            'meiliSearchArticles' => $meiliSearchArticles,
+            'algoliaArticles' => $algoliaArticles,
             'search' => $request->search
         ]);
     }
