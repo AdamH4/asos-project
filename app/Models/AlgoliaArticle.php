@@ -38,6 +38,7 @@ class AlgoliaArticle extends Model
     {
         return [
             'title' => $this->title,
+            'description' => $this->description,
         ];
     }
 
