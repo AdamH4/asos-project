@@ -24,7 +24,7 @@ class AlgoliaArticle extends Model
      */
     public function searchableAs()
     {
-        return 'articles';
+        return 'algolia_articles';
     }
 
     /**
