@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AlgoliaArticle;
 use App\Models\Article;
 use Illuminate\Database\Seeder;
 
