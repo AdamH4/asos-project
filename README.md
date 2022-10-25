@@ -1,5 +1,11 @@
 ## Spustenie :rocket:
 
+Ako prvy krok je potrebne prekopirovat ENV do spravneho suboru
+
+```bash
+cp .env.example .env
+```
+
 Idealne si naistalovat [tento](https://github.com/casey/just) command line runner nech je vsetko jednoduchsie.
 
 A potom uz len v roote projektu spustit tento prikaz :bomb:. Samozrejme je potrebne mat Docker nainstalovany a zaroven aj spusteny
