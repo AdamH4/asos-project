@@ -1,5 +1,5 @@
 start:
-    composer install --ignore-platform-reqs ; docker compose up --build -d; php artisan migrate; php artisan serve
+    composer install --ignore-platform-reqs ; docker compose up --build -d; php artisan migrate; php artisan serve;
 
 migrate:
     php artisan migrate
