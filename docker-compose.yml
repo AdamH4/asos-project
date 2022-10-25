@@ -50,7 +50,7 @@ services:
         ports:
             - "7700:7700"
         environment:
-            - MEILI_MASTER_KEY=admin
+            - MEILI_MASTER_KEY=masterKey
         volumes:
             - asos-meili:/meili_data
 
