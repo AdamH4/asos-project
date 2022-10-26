@@ -5,6 +5,9 @@ Ako prvy krok je potrebne prekopirovat ENV do spravneho suboru
 ```bash
 $ cp .env.example .env
 ```
+```bash
+$ php artisan migrate
+```
 
 ```bash
 $ php artisan seed:db
