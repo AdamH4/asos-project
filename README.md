@@ -38,6 +38,12 @@ Ak nechceme nic zbytocne doinstalovat tak potom :monkey_face:
  php artisan key:generate
 ```
 
+Alebo radsej
+
+```bash
+ just prepare-data
+```
+
 ## Upratovanie :zap:
 
 ```bash
