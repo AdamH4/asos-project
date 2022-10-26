@@ -7,5 +7,8 @@ migrate:
 laravel:
     php artisan serve
 
+database:
+    php artisan migrate; php artisan scout:import
+
 stop:
     docker compose stop
