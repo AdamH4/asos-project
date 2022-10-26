@@ -16,17 +16,16 @@ class ArticleController extends Controller
         $performances = [];
 
         $start = microtime(true);
-        $elasticArticles = collect();
         // Elasticsearch
-        // $elasticArticles = Article::search("$request->search", function ($client, $body) {
-        //     return $client->search(['index' => 'articles', 'body' => $body->toArray()]);
-        // })->get();
+        $elasticArticles = Article::search("$request->search", function ($client, $body) {
+            return $client->search(['index' => 'articles', 'body' => $body->toArray()]);
+        })->get();
         $performances['elastic'] = round((microtime(true) - $start) * 1000, 2);
 
         $start = microtime(true);
         $meilisearchArticles = MeiliArticle::search($search)->get();
         $performances['meili'] = round((microtime(true) - $start) * 1000, 2);
-        
+
         $start = microtime(true);
         $algoliaArticles = AlgoliaArticle::search($search)->get();
         $performances['algolia'] = round((microtime(true) - $start) * 1000, 2);

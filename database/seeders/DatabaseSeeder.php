@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Article::truncate();
         Article::factory()->times(1000)->create();
     }
 }

@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Laravel\Scout\EngineManager;
+use Matchish\ScoutElasticSearch\Engines\ElasticSearchEngine;
 
 class Article extends Model
 {
@@ -37,5 +39,15 @@ class Article extends Model
         return [
             'title' => $this->title,
         ];
+    }
+
+    /**
+     * Get the engine used to index the model.
+     *
+     * @return \Laravel\Scout\Engines\Engine
+     */
+    public function searchableUsing()
+    {
+        return app(EngineManager::class)->engine(ElasticSearchEngine::class);
     }
 }
