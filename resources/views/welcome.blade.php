@@ -48,10 +48,10 @@
                             <div class="card-body">
                                 <h5 class="card-title">Elasticsearch</h5>
                                 <dl class="row">
-                                    <dt class="col-sm-3">Number of results</dt>
-                                    <dd class="col-sm-9">{{ $elasticArticles->count() }}</dd>
-                                    <dt class="col-sm-3">Lookup time:</dt>
-                                    <dd class="col-sm-9">{{ "${performances['elastic']} ms" }}</dd>
+                                    <dt class="col-sm-9">Number of results</dt>
+                                    <dd class="col-sm-3">{{ $elasticArticles->count() }}</dd>
+                                    <dt class="col-sm-9">Lookup time:</dt>
+                                    <dd class="col-sm-3">{{ "${performances['elastic']} ms" }}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -71,10 +71,10 @@
                             <div class="card-body">
                                 <h5 class="card-title">Meilisearch</h5>
                                 <dl class="row">
-                                    <dt class="col-sm-3">Number of results</dt>
-                                    <dd class="col-sm-9">{{ $meilisearchArticles->count() }}</dd>
-                                    <dt class="col-sm-3">Lookup time:</dt>
-                                    <dd class="col-sm-9">{{ "${performances['meili']} ms" }}</dd>
+                                    <dt class="col-sm-9">Number of results</dt>
+                                    <dd class="col-sm-3">{{ $meilisearchArticles->count() }}</dd>
+                                    <dt class="col-sm-9">Lookup time:</dt>
+                                    <dd class="col-sm-3">{{ "${performances['meili']} ms" }}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -94,10 +94,10 @@
                             <div class="card-body">
                                 <h5 class="card-title">Algolia</h5>
                                 <dl class="row">
-                                    <dt class="col-sm-3">Number of results</dt>
-                                    <dd class="col-sm-9">{{ $algoliaArticles->count() }}</dd>
-                                    <dt class="col-sm-3">Lookup time:</dt>
-                                    <dd class="col-sm-9">{{ "${performances['algolia']} ms" }}</dd>
+                                    <dt class="col-sm-9">Number of results</dt>
+                                    <dd class="col-sm-3">{{ $algoliaArticles->count() }}</dd>
+                                    <dt class="col-sm-9">Lookup time:</dt>
+                                    <dd class="col-sm-3">{{ "${performances['algolia']} ms" }}</dd>
                                 </dl>
                             </div>
                         </div>
