@@ -38,6 +38,7 @@ class Article extends Model
     {
         return [
             'title' => $this->title,
+            'body' => $this->body,
         ];
     }
 
