@@ -34,6 +34,10 @@ Ak nechceme nic zbytocne doinstalovat tak potom :monkey_face:
  php artisan scout:import
 ```
 
+```bash
+ php artisan key:generate
+```
+
 ## Upratovanie :zap:
 
 ```bash
