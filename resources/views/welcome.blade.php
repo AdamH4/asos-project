@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         @foreach ($elasticArticles as $article)
-                            <div class="card">
+                            <div class="card my-2">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $article->title }}</h5>
                                     <p class="card-text">{{ $article->body }}</p>
