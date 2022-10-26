@@ -56,15 +56,15 @@ services:
             - asos-meili:/meili_data
 
     elasticsearch:
-        image: elasticsearch:8.4.3
+        image: elasticsearch:7.17.4
         environment:
             - discovery.type=single-node
             - cluster.name=elastic-cluster
             - xpack.security.enabled=false
         ports:
             - "9200:9200"
-        volumes:
-            - asos-elastic:/usr/share/elasticsearch/data
+        # volumes:
+        #     - asos-elastic:/usr/share/elasticsearch/data
 networks:
     sail:
         driver: bridge
