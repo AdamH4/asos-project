@@ -26,7 +26,7 @@ class MeiliArticle extends Model
      */
     public function searchableAs()
     {
-        return 'articles';
+        return 'meili_articles';
     }
 
     /**
