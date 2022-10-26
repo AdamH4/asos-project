@@ -36,7 +36,7 @@ $ composer install --ignore-platform-reqs ; docker compose up --build -d; php ar
 ## Upratovanie :zap:
 
 ```bash
-$ just clean
+$ just stop
 ```
 
 Alebo po starom :church:
