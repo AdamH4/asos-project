@@ -12,3 +12,6 @@ database:
 
 stop:
     docker compose stop
+
+refesh-index:
+    php artisan scout:flush; php artisan scout:import
