@@ -18,7 +18,7 @@ class ArticleController extends Controller
         $start = microtime(true);
         // Elasticsearch
         $elasticArticles = Article::search("$request->search", function ($client, $body) {
-            return $client->search(['index' => 'elastic_articles', 'body' => $body->toArray()]);
+            return $client->search(['index' => 'articles', 'body' => $body->toArray()]);
         })->get();
         $performances['elastic'] = round((microtime(true) - $start) * 1000, 2);
 

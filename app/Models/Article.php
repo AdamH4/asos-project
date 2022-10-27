@@ -26,7 +26,7 @@ class Article extends Model
      */
     public function searchableAs()
     {
-        return 'elastic_articles';
+        return 'articles';
     }
 
     /**
